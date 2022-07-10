@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "IS7cCARMcEICO1alnNh9lKKaXwKgE6D8DlY/b8m1SBo=",
+  "Source": "ECommerse.API.Orders",
+  "BasePath": "_content/ECommerse.API.Orders",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
