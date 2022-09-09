@@ -1,6 +1,7 @@
 using ECommerse.API.Search.Interfaces;
 using ECommerse.API.Search.Services;
 using Polly;
+using System.Net;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +22,13 @@ builder.Services.AddHttpClient("OrdersAPIService", config => {
 builder.Services.AddHttpClient("ProductsAPIService", config => {
     config.BaseAddress = new Uri(Configuration["Services:Products"]);
 }).AddTransientHttpErrorPolicy( p => p.WaitAndRetryAsync(5, _ =>  TimeSpan.FromMilliseconds(500) ));
+
+
+//int retryCount = Convert.ToInt32(Configuration["RetryCount"]); // 3 from appsettings.json file
+
+//var policy = Policy.Handle<WebException>()
+//  .WaitAndRetryAsync(retryCount, _ => TimeSpan.FromMilliseconds(500));
+
 
 
 var app = builder.Build();
